@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <title>Creative Project 3</title>
+</head>
+
+<body>
+    
+    <div id="app">
+        <h1>Star Wars Character Index</h1>
+        <div v-if="loading">
+            <p>Loading...</p>
+        </div>
+        <div v-else>
+            <!--Buttons-->
+            <p>
+                <button v-on:click="prev_character">Previous</button>
+                <button v-on:click="next_character">Next</button>
+            </p>
+            <hr>
+
+            <!--Character Display-->
+            <div>
+                <h2>{{character.name}}</h2>
+
+                <p>Species: {{species.name}}</p>
+                <p>Gender: {{character.gender}}</p>
+                <p>Height: {{character.height}}</p>
+                <p>Mass: {{character.mass}} kgs</p>
+                <p>Birth Year: {{character.birth_year}}</p>
+                <p>Eye Color: {{character.eye_color}}</p>
+                <p>Hair Color: {{character.hair_color}}</p>
+                <p>Skin Color: {{character.skin_color}}</p>
+                <hr>
+            </div>
+
+            <div>
+                <h2>Homeworld</h2>
+                <p>Planet: {{planet.name}}</p>
+                <p>Climate: {{planet.climate}}</p>
+                <p>Terrain: {{planet.terrain}}</p>
+                <p>Language: {{species.language}}</p>
+                <hr>
+            </div>
+            <div>
+                <h2>Appearances</h2>
+                <ul>
+                    <li v-for="film in film_names">
+                        {{ film }}
+                    </li>
+                </ul>
+
+            </div>
+
+            <a id="footer" href="https://github.com/BYU-CS-260-Winter-2019/lab-3-abaker95">Github Link</a>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+
+
+</html>
